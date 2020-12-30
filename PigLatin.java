@@ -1,4 +1,4 @@
-//TODO: HAVE EDGE CASES CHECKED FOR ERRORS, TESTING, PIG LAINT III (How to check for a non letter?)
+//TODO: HAVE EDGE CASES CHECKED FOR ERRORS, TESTING
 //NOTES: COMMENT OUT / CLEAR MAIN METHOD WHEN DONE
 //ISSUES: TBD
 
@@ -20,6 +20,17 @@ public static void main(String[] args) {
 	System.out.println(pigLatin("Skee"));
 	System.out.println(pigLatin("eMu"));
 	System.out.println(pigLatin("gRade"));
+	System.out.println();
+
+	System.out.println("/// PIG LAINT BEST /// (Test cases from Rocket Chat)");
+	System.out.println(pigLatinBest("*emu"));
+	System.out.println(pigLatinBest("4chan"));
+	System.out.println(pigLatinBest("fish!"));
+	System.out.println(pigLatinBest("fish"));
+	System.out.println(pigLatinBest("the."));
+	System.out.println(pigLatinBest("cat!"));
+	System.out.println(pigLatinBest("amazing?"));
+	System.out.println(pigLatinBest("apple%"));
 
 	// String newb = "+rade";
 	// System.out.println(newb);
@@ -88,7 +99,7 @@ public static String pigLatinBest(String s) {
 	else {
 		pig = temp.substring(1,temp.length()) + temp.charAt(0) + "ay";
 	}
-	if (punctuation == false) {
+	if (punctuation == true) {
 		return pig + store;
 	}
 	return pig;
