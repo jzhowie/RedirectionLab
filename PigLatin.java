@@ -7,25 +7,25 @@ import java.io.*;
 
 public class PigLatin {
 public static void main(String[] args) {
-	// System.out.println("/// PIG LAINT SIMPLE /// (Test cases from Rocket Chat)");
-	// System.out.println(pigLatinSimple("moCk"));
-	// System.out.println(pigLatinSimple("pIe"));
-	// System.out.println(pigLatinSimple("dAvid"));
-	// System.out.println(pigLatinSimple("Aaron"));
-	// System.out.println();
-	//
-	// System.out.println("/// PIG LAINT NORMAL /// (Test cases from Rocket Chat)");
-	// System.out.println(pigLatin("The"));
-	// System.out.println(pigLatin("checK"));
-	// System.out.println(pigLatin("Skee"));
-	// System.out.println(pigLatin("eMu"));
-	// System.out.println(pigLatin("gRade"));
+	System.out.println("/// PIG LAINT SIMPLE /// (Test cases from Rocket Chat)");
+	System.out.println(pigLatinSimple("moCk"));
+	System.out.println(pigLatinSimple("pIe"));
+	System.out.println(pigLatinSimple("dAvid"));
+	System.out.println(pigLatinSimple("Aaron"));
+	System.out.println();
 
-	String newb = "+rade";
-	System.out.println(newb);
-	System.out.println(newb.charAt(0));
-	System.out.println((int)newb.charAt(0));
-	System.out.println(Character.isAlphabetic((int)newb.charAt(0)));
+	System.out.println("/// PIG LAINT NORMAL /// (Test cases from Rocket Chat)");
+	System.out.println(pigLatin("The"));
+	System.out.println(pigLatin("checK"));
+	System.out.println(pigLatin("Skee"));
+	System.out.println(pigLatin("eMu"));
+	System.out.println(pigLatin("gRade"));
+
+	// String newb = "+rade";
+	// System.out.println(newb);
+	// System.out.println(newb.charAt(0));
+	// System.out.println((int)newb.charAt(0));
+	// System.out.println(Character.isAlphabetic((int)newb.charAt(0)));
 }
 
 public static String pigLatinSimple(String s) {
@@ -35,9 +35,10 @@ public static String pigLatinSimple(String s) {
 
 	if (vowels.contains(temp.charAt(0))) {
 		pig = temp + "hay";
-		return pig;
 	}
-	pig = temp.substring(1,temp.length()) + temp.charAt(0) + "ay";
+	else {
+		pig = temp.substring(1,temp.length()) + temp.charAt(0) + "ay";
+	}
 	return pig;
 }
 
@@ -49,16 +50,14 @@ public static String pigLatin(String s) {
 
 	if (temp.length() >= 2 && digraphs.contains(temp.substring(0, 2))) {
 		pig = temp.substring(2, temp.length()) + temp.substring(0, 2) + "ay";
-		return pig;
 	}
 	else if (vowels.contains(temp.charAt(0))) {
 		pig = temp + "hay";
-		return pig;
 	}
 	else {
 		pig = temp.substring(1,temp.length()) + temp.charAt(0) + "ay";
-		return pig;
 	}
+	return pig;
 }
 
 public static String pigLatinBest(String s) {
@@ -79,17 +78,19 @@ public static String pigLatinBest(String s) {
 		store = temp.charAt(temp.length() - 1);
 		temp = temp.substring(0, temp.length() - 1);
 	}
+
 	if (temp.length() >= 2 && digraphs.contains(temp.substring(0, 2))) {
 		pig = temp.substring(2, temp.length()) + temp.substring(0, 2) + "ay";
-		return pig;
 	}
 	else if (vowels.contains(temp.charAt(0))) {
 		pig = temp + "hay";
-		return pig;
 	}
 	else {
 		pig = temp.substring(1,temp.length()) + temp.charAt(0) + "ay";
-		return pig;
 	}
+	if (punctuation == false) {
+		return pig + store;
+	}
+	return pig;
 }
 }
