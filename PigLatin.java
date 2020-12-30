@@ -6,31 +6,44 @@ import java.util.*;
 import java.io.*;
 
 public class PigLatin {
-public static void main(String[] args) {
-	System.out.println("/// PIG LAINT SIMPLE /// (Test cases from Rocket Chat)");
-	System.out.println(pigLatinSimple("moCk"));
-	System.out.println(pigLatinSimple("pIe"));
-	System.out.println(pigLatinSimple("dAvid"));
-	System.out.println(pigLatinSimple("Aaron"));
-	System.out.println();
+public static void main(String[] args) throws FileNotFoundException {
 
-	System.out.println("/// PIG LAINT NORMAL /// (Test cases from Rocket Chat)");
-	System.out.println(pigLatin("The"));
-	System.out.println(pigLatin("checK"));
-	System.out.println(pigLatin("Skee"));
-	System.out.println(pigLatin("eMu"));
-	System.out.println(pigLatin("gRade"));
-	System.out.println();
+	Scanner n = new Scanner (System.in);
+	while (n.hasNextLine()) {
+		String line = n.nextLine();
+		Scanner linescan = new Scanner (line);
+		while (linescan.hasNext()) {
+			String next = pigLatinBest(linescan.next());
+			System.out.print(next);
+			System.out.print(" ");
+		}
+		System.out.println();
+	}
 
-	System.out.println("/// PIG LAINT BEST /// (Test cases from Rocket Chat)");
-	System.out.println(pigLatinBest("*emu"));
-	System.out.println(pigLatinBest("4chan"));
-	System.out.println(pigLatinBest("fish!"));
-	System.out.println(pigLatinBest("fish"));
-	System.out.println(pigLatinBest("the."));
-	System.out.println(pigLatinBest("cat!"));
-	System.out.println(pigLatinBest("amazing?"));
-	System.out.println(pigLatinBest("apple%"));
+	// System.out.println("/// PIG LAINT SIMPLE /// (Test cases from Rocket Chat)");
+	// System.out.println(pigLatinSimple("moCk"));
+	// System.out.println(pigLatinSimple("pIe"));
+	// System.out.println(pigLatinSimple("dAvid"));
+	// System.out.println(pigLatinSimple("Aaron"));
+	// System.out.println();
+	//
+	// System.out.println("/// PIG LAINT NORMAL /// (Test cases from Rocket Chat)");
+	// System.out.println(pigLatin("The"));
+	// System.out.println(pigLatin("checK"));
+	// System.out.println(pigLatin("Skee"));
+	// System.out.println(pigLatin("eMu"));
+	// System.out.println(pigLatin("gRade"));
+	// System.out.println();
+	//
+	// System.out.println("/// PIG LAINT BEST /// (Test cases from Rocket Chat)");
+	// System.out.println(pigLatinBest("*emu"));
+	// System.out.println(pigLatinBest("4chan"));
+	// System.out.println(pigLatinBest("fish!"));
+	// System.out.println(pigLatinBest("fish"));
+	// System.out.println(pigLatinBest("the."));
+	// System.out.println(pigLatinBest("cat!"));
+	// System.out.println(pigLatinBest("amazing?"));
+	// System.out.println(pigLatinBest("apple%"));
 
 	// String newb = "+rade";
 	// System.out.println(newb);
